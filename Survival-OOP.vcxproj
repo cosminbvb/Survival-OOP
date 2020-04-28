@@ -147,7 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AgentTom.cpp" />
+    <ClCompile Include="BaseAgent.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Survival-OOP.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AgentTom.h" />
+    <ClInclude Include="BaseAgent.h" />
+    <ClInclude Include="Map.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
