@@ -4,25 +4,26 @@
 #include "Map.h"
 using namespace std;
 
+class Map;
+
 class BaseAgent
 {
+	//derivde classes: AgentTom, AgentJerry, AgentSpike. 
 protected:
 	int hp;
-	int armour;
 	pair<int, int>position;
-	string type;
+	char description; 
 	int range;
 public:
-	BaseAgent() : hp(100), armour(0) {}; //not used
-	BaseAgent(int hp, int armour) : hp(hp), armour(armour) {};
+	BaseAgent() : hp(100),range(0),description(' '){};
+	BaseAgent(int hp,int range, char description) : hp(hp),range(range),description(description){};
 	void setHp(int);
 	int getHp();
-	void setArmour(int);
-	int getArmour();
-	void setPosition(pair<int, int>);
+	void setPosition(pair<int, int>, Map&);
 	pair<int, int> getPosition();
-	string getType();
-	virtual void move(const Map&) = 0;
-	virtual void fight() = 0;
+	char getDescription();
+	virtual void move(Map&) = 0;
+	virtual void fight(pair<int,int>) = 0;
+	~BaseAgent() {};
 };
 

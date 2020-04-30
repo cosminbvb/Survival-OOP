@@ -3,21 +3,15 @@
 void BaseAgent::setHp(int hp) {
 	this->hp = hp;
 }
-void BaseAgent::setArmour(int armour) {
-	this->armour = armour;
-}
-void BaseAgent::setPosition(pair<int, int> position) {
+void BaseAgent::setPosition(pair<int, int> position, Map& map) {
 	this->position = position;
 }
 int BaseAgent::getHp() {
 	return hp;
 }
-int BaseAgent::getArmour() {
-	return armour;
-}
 pair<int, int> BaseAgent::getPosition() {
 	return position;
 }
-string BaseAgent::getType() {
-	return type;
+char BaseAgent::getDescription() {
+	return description;
 }

@@ -2,21 +2,24 @@
 
 #include <iostream>
 #include <vector>
+#include "BaseAgent.h"
 using namespace std;
+
+class BaseAgent;
 
 class Map
 {
 	int rows, cols;
-	vector<vector<char>> matrix;
+	vector<vector<BaseAgent*>> matrix;
 public:
 	Map(int, int);
 	int getNrRows() { return this->rows; }
 	int getNrCols() { return this->cols; }
-	char getItem(int, int);
-	void setItem(int, int, char);
-	vector<vector<char>> getProximity(pair<int, int>, int) const;
+	BaseAgent* getItem(int, int);
+	void setItem(int, int, BaseAgent*);
+	vector<vector<BaseAgent*>> getProximity(pair<int, int>, int);
+	pair<int, int> getProximityNewCentre(pair<int, int>, int);
 	friend ostream& operator<<(ostream& out, const Map&);
 
-	friend class AgentTom;
 };
 

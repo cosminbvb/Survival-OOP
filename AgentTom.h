@@ -5,16 +5,12 @@
 class AgentTom : public BaseAgent
 {
 	//will look for the closest Jerry and will move towards him
-	//runs away from Spike but is more focused on Jerry
-	//has half armour 
-
+	//runs away from Spike but is more focused on Jerry 
+	//has a movement range of 2 blocks
 public:
-	AgentTom() : BaseAgent(100, 50) {
-		type = "T";
-		range = 2;
-	};
-	void move(const Map&);
-	void fight();
+	AgentTom() : BaseAgent(100, 2, 'T') {};
+	void move(Map&);
+	void fight(pair<int,int>);
 };
 
 

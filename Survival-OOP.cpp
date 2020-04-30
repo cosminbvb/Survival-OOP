@@ -3,17 +3,21 @@
 
 #include <iostream>
 #include "Map.h"
+#include "BaseAgent.h"
+#include "AgentTom.h"
 
 using namespace std;
 
 int main()
 {
-    Map m = Map(15, 15);
-    m.setItem(1, 2, '1');
-    m.setItem(1, 4, '2');
-    m.setItem(3, 2, '3');
-    m.setItem(3, 4, '4');
-    cout << m;
-
+    Map m = Map(5, 5);
+    AgentTom* Tom = new AgentTom;
+    pair<int, int>pozitie1;
+    pozitie1.first = 2;
+    pozitie1.second = 3;
+    Tom->setPosition(pozitie1,m);
+    m.setItem(pozitie1.first, pozitie1.second, Tom);
+    cout<<m; //why
+    
     return 0;
 }
