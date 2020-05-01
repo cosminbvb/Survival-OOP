@@ -15,3 +15,6 @@ pair<int, int> BaseAgent::getPosition() {
 char BaseAgent::getDescription() {
 	return description;
 }
+BaseAgent* BaseAgent::oneVone(BaseAgent* a1, BaseAgent* a2) {
+	return a1;
+}

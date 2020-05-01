@@ -22,8 +22,9 @@ public:
 	void setPosition(pair<int, int>, Map&);
 	pair<int, int> getPosition();
 	char getDescription();
-	virtual void move(Map&) = 0;
-	virtual void fight(pair<int,int>) = 0;
+	virtual pair<int,int> move(Map&) = 0; //return his next posititon
+	//virtual BaseAgent* fight(BaseAgent*) = 0; //return the winning agent in a 1v1
+	static BaseAgent* oneVone(BaseAgent*, BaseAgent*);
 	~BaseAgent() {};
 };
 

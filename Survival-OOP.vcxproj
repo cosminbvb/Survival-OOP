@@ -147,14 +147,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AgentJerry.cpp" />
     <ClCompile Include="AgentTom.cpp" />
     <ClCompile Include="BaseAgent.cpp" />
+    <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Survival-OOP.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AgentJerry.h" />
     <ClInclude Include="AgentTom.h" />
     <ClInclude Include="BaseAgent.h" />
+    <ClInclude Include="GameEngine.h" />
     <ClInclude Include="Map.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
