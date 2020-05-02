@@ -12,8 +12,8 @@ BaseAgent* Map::getItem(int row, int col) {
 	return matrix[row][col];
 }
 
-void Map::setItem(int row, int col, BaseAgent* value){
-	matrix[row][col] = value;
+void Map::setItem(int row, int col, BaseAgent* agent){
+	matrix[row][col] = agent;
 }
 
 ostream& operator<<(ostream& out, const Map& map) {

@@ -8,18 +8,20 @@ pair<int,int> AgentJerry::move(Map& map) {
 	vector<pair<int, int>> Toms;//coordinates of each Tom in his range
 	pair<int,int>current;
 	pair<int, int>newPosition;
+
 	for (unsigned i = 0; i < fov.size(); i++) {
-		for (unsigned j = 0; j < fov.size(); j++) {
-			if (fov[i][j]->getDescription() == 'T') {
+		for (unsigned j = 0; j < fov[i].size(); j++) {
+			if (fov[i][j] && fov[i][j]->getDescription() == 'T') {
 				current.first = i;
 				current.second = j;
 				Toms.push_back(current);
 			}
 		}
 	}
+
 	int maxDist = 0;
 	for (unsigned i = 0; i < fov.size(); i++) {
-		for (unsigned j = 0; j < fov.size(); j++) {
+		for (unsigned j = 0; j < fov[i].size(); j++) {
 			int minDist = 3;//best case being diagonal
 			int d = 0;
 			current.first = i;
@@ -40,6 +42,8 @@ pair<int,int> AgentJerry::move(Map& map) {
 	pair<int, int> returnPosition;
 	returnPosition.first = this->position.first - (jerryFovPoisition.first - newPosition.first);
 	returnPosition.second = this->position.second - (jerryFovPoisition.second - newPosition.second);
+	//cout << returnPosition.first << " " << returnPosition.second << endl;
+
 	return returnPosition;
 }
 

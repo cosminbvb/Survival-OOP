@@ -19,7 +19,7 @@ public:
 	BaseAgent(int hp,int range, char description) : hp(hp),range(range),description(description){};
 	void setHp(int);
 	int getHp();
-	void setPosition(pair<int, int>, Map&);
+	void setPosition(pair<int, int>);
 	pair<int, int> getPosition();
 	char getDescription();
 	virtual pair<int,int> move(Map&) = 0; //return his next posititon

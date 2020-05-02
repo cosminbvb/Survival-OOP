@@ -8,7 +8,7 @@ using namespace std;
 
 class GameEngine
 {
-	Map *map;
+	Map *harta;
 public:
 	GameEngine();
 

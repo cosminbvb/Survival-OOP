@@ -3,7 +3,6 @@
 #include <cmath>
 
 pair<int,int> AgentTom::move(Map& map) {
-
 	vector<vector<BaseAgent*>> fov = map.getProximity(this->position, this->range);
 	pair<int, int>tomFovPoisition = map.getProximityNewCentre(this->position, this->range); //his coordinates in fov
 	int distJerry = range + 1;
@@ -44,6 +43,7 @@ pair<int,int> AgentTom::move(Map& map) {
 		//meaning that Tom only sees Jerry and will move towards him
 		newPosition = Jerry;
 	}
+
 	if (Jerry.first != -1 && Spike.first != -1) {
 		//if he can see both
 		if (tomFovPoisition.first == Jerry.first && Jerry.first == Spike.first) {
@@ -52,7 +52,7 @@ pair<int,int> AgentTom::move(Map& map) {
 				//meaning that Tom will meet Spike if he runs towards Jerry
 				//he needs to run away
 				for (unsigned i = 0; i < fov.size(); i++) {
-					for (unsigned j = 0; j < fov.size(); j++) {
+					for (unsigned j = 0; j < fov[i].size(); j++) {
 						d1 = (int)sqrt((tomFovPoisition.first - tomFovPoisition.second) ^ 2 + (j - i) ^ 2);
 						if (d1 > distAux && fov[i][j]==NULL) {
 							newPosition.first = i;
@@ -68,7 +68,7 @@ pair<int,int> AgentTom::move(Map& map) {
 				//meaning that Tom will meet Spike if he runs towards Jerry
 				//he needs to run away around
 				for (unsigned i = 0; i < fov.size(); i++) {
-					for (unsigned j = 0; j < fov.size(); j++) {
+					for (unsigned j = 0; j < fov[i].size(); j++) {
 						d1 = (int)sqrt((tomFovPoisition.first - tomFovPoisition.second) ^ 2 + (j - i) ^ 2);
 						if (d1 > distAux && fov[i][j] == NULL) {
 							newPosition.first = i;
@@ -84,7 +84,7 @@ pair<int,int> AgentTom::move(Map& map) {
 				//meaning that Tom will meet Spike if he runs towards Jerry
 				//he needs to run away
 				for (unsigned i = 0; i < fov.size(); i++) {
-					for (unsigned j = 0; j < fov.size(); j++) {
+					for (unsigned j = 0; j < fov[i].size(); j++) {
 						d1 = (int)sqrt((tomFovPoisition.first - tomFovPoisition.second) ^ 2 + (j - i) ^ 2);
 						if (d1 > distAux && fov[i][j] == NULL) {
 							newPosition.first = i;
@@ -99,12 +99,13 @@ pair<int,int> AgentTom::move(Map& map) {
 			newPosition = Jerry;
 		}
 	}
+
 	if ((Spike.first != -1 && Jerry.first == -1) || (Spike.first == -1 && Jerry.first == -1)) {
 		//if he only sees Spike or if he doesn't see anyone, he runs
 
 		/////////////////////////////aici poate scoti cazul in care nu vede pe nimeni
 		for (unsigned i = 0; i < fov.size(); i++) {
-			for (unsigned j = 0; j < fov.size(); j++) {
+			for (unsigned j = 0; j < fov[i].size(); j++) {
 				d1 = (int)sqrt((tomFovPoisition.first - tomFovPoisition.second) ^ 2 + (j - i) ^ 2);
 				if (d1 > distAux && fov[i][j] == NULL) {
 					newPosition.first = i;
@@ -113,9 +114,11 @@ pair<int,int> AgentTom::move(Map& map) {
 			}
 		}
 	}
+
 	pair<int, int> returnPosition;
 	returnPosition.first = this->position.first - (tomFovPoisition.first - newPosition.first);
 	returnPosition.second = this->position.second - (tomFovPoisition.second - newPosition.second);
+	//cout << returnPosition.first << " " << returnPosition.second << endl;
 	return returnPosition;
 	//this->position.first -= tomFovPoisition.first - newPosition.first;
 	//this->position.second -= tomFovPoisition.second - newPosition.second;
