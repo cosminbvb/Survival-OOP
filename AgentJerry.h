@@ -11,6 +11,5 @@ class AgentJerry : public BaseAgent
 public:
 	AgentJerry() : BaseAgent(100, 1, 'J') {};
 	pair<int,int> move(Map&);
-	//BaseAgent* fight(BaseAgent*);
 };
 

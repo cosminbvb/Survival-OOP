@@ -23,7 +23,6 @@ public:
 	pair<int, int> getPosition();
 	char getDescription();
 	virtual pair<int,int> move(Map&) = 0; //return his next posititon
-	//virtual BaseAgent* fight(BaseAgent*) = 0; //return the winning agent in a 1v1
 	static BaseAgent* oneVone(BaseAgent*, BaseAgent*);
 	~BaseAgent() {};
 };

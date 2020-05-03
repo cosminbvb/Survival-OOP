@@ -1,6 +1,8 @@
 #include "AgentJerry.h"
 #include <vector>
 #include <cmath>
+#include <algorithm>
+using namespace std;
 
 pair<int,int> AgentJerry::move(Map& map) {
 	vector<vector<BaseAgent*>> fov = map.getProximity(this->position, this->range);
@@ -27,7 +29,7 @@ pair<int,int> AgentJerry::move(Map& map) {
 			current.first = i;
 			current.second = j;
 			for (auto pair : Toms) {
-				d = (int)sqrt((current.second-current.first) ^ 2 + (j - i) ^ 2);
+				d = max(abs(current.first - (int)i), abs(current.second - (int)j));
 				if (d < minDist) minDist = d;
 			}
 			//minDist will now be distance between Jerry and the closest Tom
@@ -37,26 +39,10 @@ pair<int,int> AgentJerry::move(Map& map) {
 			}
 		}
 	}
-	//this->position.first -= jerryFovPoisition.first - newPosition.first;
-	//this->position.second -= jerryFovPoisition.second - newPosition.second;
 	pair<int, int> returnPosition;
 	returnPosition.first = this->position.first - (jerryFovPoisition.first - newPosition.first);
 	returnPosition.second = this->position.second - (jerryFovPoisition.second - newPosition.second);
-	//cout << returnPosition.first << " " << returnPosition.second << endl;
+	cout << "Jerry moved from " << this->position.first << ", " << this->position.second << " to " << returnPosition.first << ", " << returnPosition.second << endl;
 
 	return returnPosition;
 }
-
-//BaseAgent* AgentJerry::fight(BaseAgent* enemy) {
-//	if (enemy->getDescription() == 'T') {
-//		if (hp >= enemy->getHp()) {
-//			//Jerry Wins
-//		}
-//		else {
-//			//Tom Wins
-//		}
-//	}
-//	else {
-//		//Jerry Wins
-//	}
-//}

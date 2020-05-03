@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AgentJerry.cpp" />
+    <ClCompile Include="AgentSpike.cpp" />
     <ClCompile Include="AgentTom.cpp" />
     <ClCompile Include="BaseAgent.cpp" />
     <ClCompile Include="GameEngine.cpp" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AgentJerry.h" />
+    <ClInclude Include="AgentSpike.h" />
     <ClInclude Include="AgentTom.h" />
     <ClInclude Include="BaseAgent.h" />
     <ClInclude Include="GameEngine.h" />

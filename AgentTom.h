@@ -13,7 +13,6 @@ class AgentTom : public BaseAgent
 public:
 	AgentTom() : BaseAgent(100, 2, 'T') {};
 	pair<int,int> move(Map&);
-	/*BaseAgent* fight(BaseAgent*);*/
 };
 
 
