@@ -10,7 +10,7 @@ pair<int, int> AgentSpike::move(Map& map) {
 	int distJerry = range + 1;
 	int distTom = range + 1;
 	int distAux = 0;
-	int d1, d2;
+	int d1;
 	pair<int, int> Jerry(-1, -1); //closest Jerry
 	pair<int, int> Tom(-1, -1); //closest Tom
 	pair<int, int> newPosition; //in fov, not in the big map
@@ -34,7 +34,11 @@ pair<int, int> AgentSpike::move(Map& map) {
 		returnPosition.first = this->position.first - (spikeFovPosition.first - newPosition.first);
 		returnPosition.second = this->position.second - (spikeFovPosition.second - newPosition.second);
 	}
-
+	else {
+		returnPosition.first = this->position.first - (spikeFovPosition.first - newPosition.first);
+		returnPosition.second = this->position.second - (spikeFovPosition.second - newPosition.second);
+	}
+	
 	cout << "Spike moved from " << this->position.first << ", " << this->position.second << " to " << returnPosition.first << ", " << returnPosition.second << endl;
 
 	return returnPosition;

@@ -104,9 +104,7 @@ pair<int,int> AgentTom::move(Map& map) {
 	}
 
 	if ((Spike.first != -1 && Jerry.first == -1)) {
-		//if he only sees Spike or if he doesn't see anyone, he runs
-		//||(Spike.first==-1 && Jerry.first==-1)
-		/////////////////////////////aici poate scoti cazul in care nu vede pe nimeni
+		//if he only sees Spike, he runs
 		for (unsigned i = 0; i < fov.size(); i++) {
 			for (unsigned j = 0; j < fov[i].size(); j++) {
 				d1 = max(abs(tomFovPosition.first - (int)i), abs(tomFovPosition.second - (int)j));

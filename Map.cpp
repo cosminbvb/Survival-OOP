@@ -68,3 +68,13 @@ pair<int, int> Map::getProximityNewCentre(pair<int, int> pos, int range){
 	local.second = left;
 	return local;
 }
+
+Map::~Map() {
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			if (matrix[i][j] != NULL) {
+				delete matrix[i][j];
+			}
+		}
+	}
+}
