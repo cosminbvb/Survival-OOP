@@ -13,6 +13,7 @@ class GameEngine
 	int agents;
 public:
 	GameEngine();
+	~GameEngine();
 	void runRounds();
 	void moveEveryone();
 	void spawnAgents();

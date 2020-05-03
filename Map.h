@@ -13,6 +13,7 @@ class Map
 	vector<vector<BaseAgent*>> matrix;
 public:
 	Map(int, int);
+	~Map() {};
 	int getNrRows() { return this->rows; }
 	int getNrCols() { return this->cols; }
 	BaseAgent* getItem(int, int);

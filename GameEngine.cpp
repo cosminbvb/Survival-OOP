@@ -3,6 +3,8 @@
 #include <map>
 
 GameEngine::GameEngine() {
+	cout << "Welcome to TOM & JERRY Survival Simulation" << endl;
+	cout << endl;
 	cout << "Enter map dimensions (minimum 15x15): ";
 	int row, col;
 	cin >> row >> col;
@@ -16,6 +18,10 @@ GameEngine::GameEngine() {
 		cout << "Too many agents";
 		exit(1);
 	}
+}
+
+GameEngine::~GameEngine() {
+	delete harta;
 }
 
 void GameEngine::moveEveryone(){

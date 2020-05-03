@@ -17,6 +17,7 @@ protected:
 public:
 	BaseAgent() : hp(100),range(0),description(' '){};
 	BaseAgent(int hp,int range, char description) : hp(hp),range(range),description(description){};
+	virtual ~BaseAgent() {};
 	void setHp(int);
 	int getHp();
 	void setPosition(pair<int, int>);
@@ -24,6 +25,5 @@ public:
 	char getDescription();
 	virtual pair<int,int> move(Map&) = 0; //return his next posititon
 	static BaseAgent* oneVone(BaseAgent*, BaseAgent*);
-	~BaseAgent() {};
 };
 
