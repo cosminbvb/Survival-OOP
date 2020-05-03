@@ -9,7 +9,7 @@ class AgentJerry : public BaseAgent
 	//will win a 1v1 vs Spike regardless
 	//has a movement range of 1 block
 public:
-	AgentJerry() : BaseAgent(100, 1, 'J') {};
+	AgentJerry() : BaseAgent(50, 1, 'J') {};
 	pair<int,int> move(Map&);
 };
 

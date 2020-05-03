@@ -5,6 +5,8 @@
 GameEngine::GameEngine() {
 	cout << "Welcome to TOM & JERRY Survival Simulation" << endl;
 	cout << endl;
+	cout << "Let's see who wins the kitchen battle..." << endl;
+	cout << endl;
 	cout << "Enter map dimensions (minimum 15x15): ";
 	int row, col;
 	cin >> row >> col;
@@ -128,6 +130,14 @@ void GameEngine::runRounds() {
 		cin >> cont;
 		if (cont == 'N'){
 			response = false;
+		}
+		if (cont != 'Y' && cont != 'N') {
+			cout << "Invalid command" << endl;
+			cin >> cont;
+			while (cont != 'Y' && cont != 'N') {
+				cout << "Invalid command" << endl;
+				cin >> cont;
+			}
 		}
 	}
 }

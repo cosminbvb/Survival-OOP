@@ -5,7 +5,7 @@ class AgentSpike : public BaseAgent
 	//always wins agains Tom
 	//always looses agains Jerry
 public:
-	AgentSpike() : BaseAgent(100, 3, 'S') {};
+	AgentSpike() : BaseAgent(150, 3, 'S') {};
 	pair<int, int> move(Map&);
 };
 
