@@ -8,7 +8,7 @@ class Map;
 
 class BaseAgent
 {
-	//derivde classes: AgentTom, AgentJerry, AgentSpike. 
+	//derived classes: AgentTom, AgentJerry, AgentSpike. 
 protected:
 	int hp;
 	pair<int, int>position;
